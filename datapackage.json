@@ -15,13 +15,13 @@
     "web": ""
   }],
   "author":[{
-    "name": "Jenna Daly",
-    "email": "jdaly@ctdata.org",
+    "name": "Connecticut Data Collaborative",
+    "email": "info@ctdata.org",
     "web": "http://ctdata.org"
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/households_with_children-2016.csv",
+    "path": "data/households_with_children-2017.csv",
     "format": "csv",
     "schema": {
       "fields": [{
@@ -42,40 +42,40 @@
           "dimension": true,
           "constraints": {
             "enum": ["Female householder, no husband present, without own children",
-                     "Female householder, no husband present, with own children",   
-                     "Male householder, no wife present, without own children",     
-                     "Male householder, no wife present, with own children",        
-                     "Married-couple family without own children",                  
-                     "Married-couple family with own children",                     
-                     "Nonfamily household without own children",                    
-                     "Total households without own children",                       
+                     "Female householder, no husband present, with own children",
+                     "Male householder, no wife present, without own children",
+                     "Male householder, no wife present, with own children",
+                     "Married-couple family without own children",
+                     "Married-couple family with own children",
+                     "Nonfamily household without own children",
+                     "Total households without own children",
                      "Total households with own children"]
          }
-        }, {  
+        }, {
           "name": "Housing Tenure Type",
           "type": "string",
           "dimension": true,
           "constraints": {
-            "enum": ["Owner Occupied", 
+            "enum": ["Owner Occupied",
                      "Renter Occupied"]
          }
-        }, { 
+        }, {
           "name": "Measure Type",
           "type": "string",
           "dimension": true,
           "constraints": {
-            "enum": ["Number", 
+            "enum": ["Number",
                      "Percent"]
          }
-        }, { 
+        }, {
           "name": "Variable",
           "type": "string",
           "dimension": true,
           "constraints": {
-            "enum": ["Households", 
+            "enum": ["Households",
                      "Margins of Error"]
          }
-        }, { 
+        }, {
           "name": "Value",
           "type": "number",
           "dimension": false
@@ -83,7 +83,7 @@
       }
     }
   ],
-  "last_modified": "12/14/2017",
+  "last_modified": "01/25/2019",
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
@@ -114,7 +114,7 @@
       "ckan_name": "Socrata Dataset Name",
       "value": "",
       "type": "string"
-    }, 
+    },
     "domain": {
       "ckan_name": "Domain",
       "value": "Housing",
@@ -148,12 +148,12 @@
     },
     "years_in_catalog": {
       "ckan_name": "Years in Catalog",
-      "value": ["2006-2010", "2007-2011", "2008-2012", "2009-2013", "2010-2014", "2011-2015", "2012-2016"],
+      "value": ["2006-2010", "2007-2011", "2008-2012", "2009-2013", "2010-2014", "2011-2015", "2012-2016", "2013-2017"],
       "type": "array"
     },
     "latest_year": {
       "ckan_name": "Latest Year Available",
-      "value": "2012-2016",
+      "value": "2013-2017",
       "type": "string"
     },
     "disabled_views": {
@@ -173,17 +173,17 @@
       "ckan_name": "Expected Number of Unique Geographies",
       "value": 170,
       "type": "string"
-    },     
-    "default": {      
+    },
+    "default": {
       "ckan_name": "Default",
       "value": {
         "Town": "Connecticut",
-        "Year": ["2012-2016"],
-        "Measure Type": "Number", 
+        "Year": ["2013-2017"],
+        "Measure Type": "Number",
         "Variable": "Households"
       },
       "type": "object"
-    } 
+    }
   },
   "spot_checks": [
     {
@@ -193,34 +193,48 @@
         "Year":	"2011-2015",
         "Variable":	"Households",
         "Measure Type":	"Number",
-        "Household Type": "Female householder, no husband present, without own children", 
+        "Household Type": "Female householder, no husband present, without own children",
         "Housing Tenure Type": "Owner Occupied"
       },
       "expected": {
         "type": "$match",
         "number type": "int",
         "value": 231
-      } 
+      }
+    },
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Hartford",
+        "Year":	"2013-2017",
+        "Variable":	"Margins of Error",
+        "Measure Type":	"Number",
+        "Household Type": "Total households without own children",
+        "Housing Tenure Type": "Renter Occupied"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 630
+      }
     }
   ],
   "dimension_groups": [
       {
           "Household Type": ["Female householder, no husband present, without own children",
-                     "Female householder, no husband present, with own children",   
-                     "Male householder, no wife present, without own children",     
-                     "Male householder, no wife present, with own children",        
-                     "Married-couple family without own children",                  
-                     "Married-couple family with own children",                     
-                     "Nonfamily household without own children",                    
-                     "Total households without own children",                       
+                     "Female householder, no husband present, with own children",
+                     "Male householder, no wife present, without own children",
+                     "Male householder, no wife present, with own children",
+                     "Married-couple family without own children",
+                     "Married-couple family with own children",
+                     "Nonfamily household without own children",
+                     "Total households without own children",
                      "Total households with own children"],
-          "Housing Tenure Type": ["Owner Occupied", 
-                     "Renter Occupied"],   
-          "Measure Type": ["Number", "Percent"],        
+          "Housing Tenure Type": ["Owner Occupied",
+                     "Renter Occupied"],
+          "Measure Type": ["Number", "Percent"],
           "Variable": ["Households", "Margins of Error"]
-      }      
+      }
 
   ]
 }
-
-

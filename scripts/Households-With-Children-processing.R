@@ -17,7 +17,7 @@ source('./scripts/acsHelpers.R')
 options(scipen=999)
 acsdata <- getACSData(
     getCTGeos("town"),
-    yearList = 2010:2016,
+    yearList = 2010:2017,
     table = "B25115"
 )
 
@@ -338,7 +338,7 @@ dataset <- dataset %>%
 
 write.table(
   dataset,
-  file.path("data", "households_with_children-2016.csv"),
+  file.path("data", "households_with_children-2017.csv"),
   sep = ",",
   row.names=F,
   na = "-9999"
