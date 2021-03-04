@@ -17,11 +17,11 @@
   "author":[{
     "name": "CTData Collaborative",
     "email": "info@ctdata.org",
-    "web": "http://ctdata.org"
+    "web": "https://ctdata.org"
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/households_with_children-2018.csv",
+    "path": "data/households_with_children-2019.csv",
     "format": "csv",
     "schema": {
       "fields": [{
@@ -41,10 +41,10 @@
           "type": "string",
           "dimension": true,
           "constraints": {
-            "enum": ["Female householder, no husband present, without own children",
-                     "Female householder, no husband present, with own children",
-                     "Male householder, no wife present, without own children",
-                     "Male householder, no wife present, with own children",
+            "enum": ["Female householder, no spouse present, without own children",
+                     "Female householder, no spouse present, with own children",
+                     "Male householder, no spouse present, without own children",
+                     "Male householder, no spouse present, with own children",
                      "Married-couple family without own children",
                      "Married-couple family with own children",
                      "Nonfamily household without own children",
@@ -83,11 +83,11 @@
       }
     }
   ],
-  "last_modified": "01/30/2020",
+  "last_modified": "03/04/2021",
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
-      "value": "This data breaks down the demographic of own children present or absent disaggregated by household type categorization and housing unit tenure. Data is presented as a number as well as the proportion (percent) of households in a given disaggregation out of the total number of households represented in this dataset. According to the US Census, 'own children' refers to never married children under 18 years who are sons or daughters by birth, stepchildren, or adopted children of the householder. This data originates from the American Community Survey, table B25115.",
+      "value": "This data breaks down the demographic of own children present or absent disaggregated by household type categorization and housing unit tenure. Data is presented as a number as well as the proportion (percent) of households in a given disaggregation out of the total number of households represented in this dataset. According to the US Census, 'own children' refers to never married children under 18 years who are sons or daughters by birth, stepchildren, or adopted children of the householder. This data originates from the American Community Survey, table B25115. Prior to ACS 2019, US Census used the terms *husband* and *wife* instead of *spouse*.",
       "type": "string"
     },
     "suppression": {
@@ -148,12 +148,12 @@
     },
     "years_in_catalog": {
       "ckan_name": "Years in Catalog",
-      "value": ["2006-2010", "2007-2011", "2008-2012", "2009-2013", "2010-2014", "2011-2015", "2012-2016", "2013-2017", "2014-2018"],
+      "value": ["2006-2010", "2007-2011", "2008-2012", "2009-2013", "2010-2014", "2011-2015", "2012-2016", "2013-2017", "2014-2018", "2015-2019"],
       "type": "array"
     },
     "latest_year": {
       "ckan_name": "Latest Year Available",
-      "value": "2014-2018",
+      "value": "2015-2019",
       "type": "string"
     },
     "disabled_views": {
@@ -178,7 +178,7 @@
       "ckan_name": "Default",
       "value": {
         "Town": "Connecticut",
-        "Year": ["2014-2018"],
+        "Year": ["2015-2019"],
         "Measure Type": "Number",
         "Variable": "Households"
       },
@@ -193,7 +193,7 @@
         "Year":	"2011-2015",
         "Variable":	"Households",
         "Measure Type":	"Number",
-        "Household Type": "Female householder, no husband present, without own children",
+        "Household Type": "Female householder, no spouse present, without own children",
         "Housing Tenure Type": "Owner Occupied"
       },
       "expected": {
@@ -221,10 +221,10 @@
   ],
   "dimension_groups": [
       {
-          "Household Type": ["Female householder, no husband present, without own children",
-                     "Female householder, no husband present, with own children",
-                     "Male householder, no wife present, without own children",
-                     "Male householder, no wife present, with own children",
+          "Household Type": ["Female householder, no spouse present, without own children",
+                     "Female householder, no spouse present, with own children",
+                     "Male householder, no spouse present, without own children",
+                     "Male householder, no spouse present, with own children",
                      "Married-couple family without own children",
                      "Married-couple family with own children",
                      "Nonfamily household without own children",

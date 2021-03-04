@@ -17,7 +17,7 @@ source('./scripts/acsHelpers.R')
 options(scipen=999)
 acsdata <- getACSData(
     getCTGeos("town"),
-    yearList = 2010:2018,
+    yearList = 2010:2019,
     table = "B25115"
 )
 
@@ -309,8 +309,8 @@ dataset[,`:=`(
         `Household Type` = switch(
             family,
             married = "Married-couple family",
-            male = "Male householder, no wife present,",
-            female = "Female householder, no husband present,",
+            male = "Male householder, no spouse present,",
+            female = "Female householder, no spouse present,",
             nonfamily = "Nonfamily household",
             total = "Total households"
         )
@@ -338,7 +338,7 @@ dataset <- dataset %>%
 
 write.table(
   dataset,
-  file.path("data", "households_with_children-2018.csv"),
+  file.path("data", "households_with_children-2019.csv"),
   sep = ",",
   row.names=F,
   na = "-9999"
